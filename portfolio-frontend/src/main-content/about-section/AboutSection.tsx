@@ -24,21 +24,33 @@ const AboutSection = () => {
                         <div className="sec-eyebrow" style={{ marginBottom: '20px' }}>My Journey</div>
                         <div className="timeline">
                             <div className="tl-item">
-                                <div className="tl-year">2022 – 2023</div>
-                                <div className="tl-role">Secondary School Graduate</div>
-                                <div className="tl-org">Rwanda</div>
+                                <div className="tl-year">2021 – 2024</div>
+                                <div className="tl-role">High School</div>
+                                <div className="tl-org">College Saint Andre, Rwanda</div>
                                 <div className="tl-desc">Completed secondary education and began exploring programming and technology
                                     independently.</div>
                             </div>
                             <div className="tl-item">
-                                <div className="tl-year">2024</div>
+                                <div className="tl-year">March, 2026</div>
                                 <div className="tl-role">Aspire Leaders Program</div>
                                 <div className="tl-org">Cohort 1, 2026</div>
                                 <div className="tl-desc">Developed leadership frameworks and community impact skills alongside exceptional
                                     peers from across Africa.</div>
                             </div>
+                            <div className="tl-item">
+                                <div className="tl-year">May, 2026 - June, 2026</div>
+                                <div className="tl-role">Future Interns</div>
+                                <div className="tl-org">Internship: Data Science & Analytics</div>
+                                <div className="tl-desc">Successfully completed a  1-month internship program in Data Science & Analytics at Future Interns from May-2026 to June-2026.</div>
+                            </div>
+                            <div className="tl-item">
+                                <div className="tl-year">June, 2026 - August, 2026</div>
+                                <div className="tl-role">Codetopia Community</div>
+                                <div className="tl-org">Internship: Projects and Open-source</div>
+                                <div className="tl-desc">Completed a 2-month internship at Codetopia community. I mastered source control (Git, GitHub) which suits me well for collaboration.</div>
+                            </div>
                             <div className="tl-item active">
-                                <div className="tl-year">2024 – Present</div>
+                                <div className="tl-year">2025 – Present</div>
                                 <div className="tl-role">BSc. Computer Science</div>
                                 <div className="tl-org">Ashesi University · MasterCard Foundation Scholar</div>
                                 <div className="tl-desc">Building foundations in CS while working on real-world projects in data science,
