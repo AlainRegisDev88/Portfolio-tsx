@@ -5,6 +5,22 @@ from django.db import models
 
 # Create your models here.
 
+
+class Profile(models.Model):
+    name = models.CharField(max_length=50, default="Regis Alain Udahemuka")
+    address = models.CharField(max_length=100)
+    nationality = models.CharField(max_length=50, default="Rwanda 🇷🇼")
+    university = models.CharField(max_length=50, default="Ashesi Universiy")
+    program = models.CharField(max_length=50, default="BSc. Computer Science")
+    year = models.CharField(max_length=50, default="Sophomore")
+    focus = models.CharField(max_length=100, blank=True)
+    languages = ArrayField(models.CharField(max_length=50), blank=True, default=list)
+    
+    
+    def __str__(self):
+        return self.name
+    
+
 class Skills(models.Model):
     
     CATEGORY_CHOICES = [
@@ -67,5 +83,7 @@ class Education(models.Model):
     end_date = models.DateField(null=True, blank=True)
     coursework = ArrayField(models.CharField(max_length=50), blank=True, default=list)
     
+    def __str__(self):
+        return self.school
     
     
