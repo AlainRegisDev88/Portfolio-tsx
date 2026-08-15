@@ -1,6 +1,5 @@
 import uuid
 from django.core.validators import MinValueValidator, MaxValueValidator 
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
@@ -14,7 +13,7 @@ class Profile(models.Model):
     program = models.CharField(max_length=50, default="BSc. Computer Science")
     year = models.CharField(max_length=50, default="Sophomore")
     focus = models.CharField(max_length=100, blank=True)
-    languages = ArrayField(models.CharField(max_length=50), blank=True, default=list)
+    languages = models.JSONField(blank=True, default=list)
     
     
     def __str__(self):
@@ -53,7 +52,7 @@ class Skills(models.Model):
 class Projects(models.Model):
     uuid  =models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     name = models.CharField(max_length=50, unique=True)
-    languages = ArrayField(models.CharField(max_length=50), blank=True, default=list)
+    languages = models.JSONField(blank=True, default=list)
     description = models.TextField(blank=True)
     github = models.BooleanField(default=False)
     live = models.BooleanField(default=False)
@@ -81,7 +80,7 @@ class Education(models.Model):
     status = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
-    coursework = ArrayField(models.CharField(max_length=50), blank=True, default=list)
+    coursework = models.JSONField(blank=True, default=list)
     
     def __str__(self):
         return self.school
