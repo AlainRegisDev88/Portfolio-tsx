@@ -17,8 +17,8 @@ const AboutSection = () => {
                             prediction models for subsistence farmers in Rwanda to data systems that empower communities across the
                             continent. I believe that the most impactful technology is built close to the people who need it.</p>
                         <p>Beyond code, I serve as CMO and Developer on <strong>Annotate</strong>, a research workspace startup, and
-                            co-lead Youths For Change at Ashesi, where we run digital skills training and community outreach programs.
-                            I play guitar when the code needs to breathe.</p>
+                            serve in Youths For Change at Ashesi, where we run digital skills training and community outreach programs.
+                            I play guitar and some games when the code needs to breathe.</p>
                     </div>
                     <div style={{ marginTop: '48px' }}>
                         <div className="sec-eyebrow" style={{ marginBottom: '20px' }}>My Journey</div>
