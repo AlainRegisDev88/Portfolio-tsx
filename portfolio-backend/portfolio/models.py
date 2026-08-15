@@ -5,6 +5,22 @@ from django.db import models
 
 # Create your models here.
 
+
+class Profile(models.Model):
+    name = models.CharField(max_length=50, default="Regis Alain Udahemuka")
+    address = models.CharField(max_length=100)
+    nationality = models.CharField(max_length=50, default="Rwanda 🇷🇼")
+    university = models.CharField(max_length=50, default="Ashesi Universiy")
+    program = models.CharField(max_length=50, default="BSc. Computer Science")
+    year = models.CharField(max_length=50, default="Sophomore")
+    focus = models.CharField(max_length=100, blank=True)
+    languages = ArrayField(models.CharField(max_length=50), blank=True, default=list)
+    
+    
+    def __str__(self):
+        return self.name
+    
+
 class Skills(models.Model):
     
     CATEGORY_CHOICES = [
@@ -51,8 +67,23 @@ class Experience(models.Model):
     name = models.CharField(unique=True)
     category = models.CharField(max_length=50)
     organisation = models.CharField(max_length=50, blank=False)
-    start_date = models.DateField(blank=False)
-    end_date = models.DateField(blank=True)
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
     
     def __str__(self):
         return self.name
+    
+class Education(models.Model):    
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
+    school = models.CharField(max_length=70)
+    program = models.CharField(max_length=70)
+    location = models.CharField(max_length=100)
+    status = models.CharField(max_length=100)
+    start_date = models.DateField()
+    end_date = models.DateField(null=True, blank=True)
+    coursework = ArrayField(models.CharField(max_length=50), blank=True, default=list)
+    
+    def __str__(self):
+        return self.school
+    
+    
