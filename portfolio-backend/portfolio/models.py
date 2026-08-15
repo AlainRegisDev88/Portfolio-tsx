@@ -38,7 +38,7 @@ class Projects(models.Model):
     uuid  =models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     name = models.CharField(max_length=50, unique=True)
     languages = ArrayField(models.CharField(max_length=50), blank=True, default=list)
-    description = models.TextField()
+    description = models.TextField(blank=True)
     github = models.BooleanField(default=False)
     live = models.BooleanField(default=False)
     
@@ -46,5 +46,13 @@ class Projects(models.Model):
         return self.name
     
     
+class Experience(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
+    name = models.CharField(unique=True)
+    category = models.CharField(max_length=50)
+    organisation = models.CharField(max_length=50, blank=False)
+    start_date = models.DateField(blank=False)
+    end_date = models.DateField(blank=True)
     
-    
+    def __str__(self):
+        return self.name
