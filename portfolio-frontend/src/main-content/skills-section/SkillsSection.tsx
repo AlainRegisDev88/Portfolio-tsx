@@ -19,43 +19,40 @@ const SkillsSection = () => {
                         Programming
                     </div>
                     <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>Python</span><span>85%</span></div>
-                        <div className="skill-bar-track">
-                            <div className="skill-bar-fill" data-w="85" style={{ width: '0%' }}></div>
-                        </div>
-                    </div>
-                    <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>JavaScript</span><span>70%</span></div>
-                        <div className="skill-bar-track">
-                            <div className="skill-bar-fill" data-w="70" style={{ width: '0%' }}></div>
-                        </div>
-                    </div>
-                    <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>Java</span><span>60%</span></div>
-                        <div className="skill-bar-track">
-                            <div className="skill-bar-fill" data-w="60" style={{ width: '0%' }}></div>
-                        </div>
-                    </div>
-                    <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>C</span><span>55%</span></div>
-                        <div className="skill-bar-track">
-                            <div className="skill-bar-fill" data-w="55" style={{ width: '0%' }}></div>
-                        </div>
-                    </div>
-                    <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>SQL</span><span>65%</span></div>
+                        <div className="skill-bar-label"><span>Python</span><span>65%</span></div>
                         <div className="skill-bar-track">
                             <div className="skill-bar-fill" data-w="65" style={{ width: '0%' }}></div>
                         </div>
                     </div>
                     <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>R</span><span>40%</span></div>
+                        <div className="skill-bar-label"><span>JavaScript</span><span>55%</span></div>
+                        <div className="skill-bar-track">
+                            <div className="skill-bar-fill" data-w="55" style={{ width: '0%' }}></div>
+                        </div>
+                    </div>
+                    <div className="skill-bar-item">
+                        <div className="skill-bar-label"><span>TypeScript</span><span>50%</span></div>
+                        <div className="skill-bar-track">
+                            <div className="skill-bar-fill" data-w="50" style={{ width: '0%' }}></div>
+                        </div>
+                    </div>
+                    <div className="skill-bar-item">
+                        <div className="skill-bar-label"><span>Java</span><span>40%</span></div>
                         <div className="skill-bar-track">
                             <div className="skill-bar-fill" data-w="40" style={{ width: '0%' }}></div>
                         </div>
                     </div>
+                    <div className="skill-bar-item">
+                        <div className="skill-bar-label"><span>SQL</span><span>45%</span></div>
+                        <div className="skill-bar-track">
+                            <div className="skill-bar-fill" data-w="45" style={{ width: '0%' }}></div>
+                        </div>
+                    </div>
+                    
+                    
+                    
                 </div>
-                <div className="skill-cat">
+                <div className="skill-cat" style={{opacity: "0.3"}}>
                     <div className="skill-cat-title">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                             <path
@@ -119,13 +116,13 @@ const SkillsSection = () => {
                         </div>
                     </div>
                     <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>FastAPI</span><span>50%</span></div>
+                        <div className="skill-bar-label"><span>EpressAPI</span><span>50%</span></div>
                         <div className="skill-bar-track">
                             <div className="skill-bar-fill" data-w="50" style={{ width: '0%' }}></div>
                         </div>
                     </div>
                     <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>PostgreSQL</span><span>45%</span></div>
+                        <div className="skill-bar-label"><span>SQL</span><span>45%</span></div>
                         <div className="skill-bar-track">
                             <div className="skill-bar-fill" data-w="45" style={{ width: '0%' }}></div>
                         </div>
@@ -147,7 +144,7 @@ const SkillsSection = () => {
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '4px' }}>
                         <span className="skill-tag">Git</span><span className="skill-tag">GitHub</span>
-                        <span className="skill-tag">VS Code</span><span className="skill-tag">Linux</span>
+                        {/* <span className="skill-tag">VS Code</span><span className="skill-tag">Linux</span> */}
                         <span className="skill-tag">Jupyter</span><span className="skill-tag">React Router</span>
                         <span className="skill-tag">Figma</span><span className="skill-tag">Postman</span>
                         <span className="skill-tag">Excel</span><span className="skill-tag">Tableau</span>
