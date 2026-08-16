@@ -13,7 +13,7 @@ class Profile(models.Model):
     program = models.CharField(max_length=50, default="BSc. Computer Science")
     year = models.CharField(max_length=50, default="Sophomore")
     focus = models.CharField(max_length=100, blank=True)
-    languages = models.JSONField(blank=True, default=list)
+    languages = models.JSONField(blank=True, null=True, default=list)
     
     
     def __str__(self):
