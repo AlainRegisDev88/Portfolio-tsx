@@ -116,7 +116,7 @@ const SkillsSection = () => {
                         </div>
                     </div>
                     <div className="skill-bar-item">
-                        <div className="skill-bar-label"><span>EpressAPI</span><span>50%</span></div>
+                        <div className="skill-bar-label"><span>ExpressAPI</span><span>50%</span></div>
                         <div className="skill-bar-track">
                             <div className="skill-bar-fill" data-w="50" style={{ width: '0%' }}></div>
                         </div>
