@@ -42,3 +42,4 @@ class ProjectsViewSet(viewsets.ModelViewSet):
 class ExperienceViewSet(viewsets.ModelViewSet):
     queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
+    
