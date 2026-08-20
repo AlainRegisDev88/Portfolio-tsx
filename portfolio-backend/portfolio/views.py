@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Skills, Education, Profile
-from .serializers import SkillsSerializer, EducationSerializer, profileSerializer
+from rest_framework import viewsets
+from .models import Skills, Education, Profile, Projects
+from .serializers import SkillsSerializer, EducationSerializer, profileSerializer, ProjectsSerializer
 # Create your views here.
 
 @api_view(['GET'])
@@ -31,3 +32,8 @@ def get_education(request):
     serializer = EducationSerializer(education_data, many=True)
     
     return Response(serializer.data)
+
+# the models views below uses the viewsets instead of views functions
+class ProjectsViewSet(viewsets.ModelViewSet):
+    queryset = Projects.objects.all()
+    serializer_class = ProjectsSerializer
