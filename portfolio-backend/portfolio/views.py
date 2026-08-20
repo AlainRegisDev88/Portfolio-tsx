@@ -9,32 +9,19 @@ from .serializers import SkillsSerializer, EducationSerializer, profileSerialize
 @api_view(['GET'])
 def hello_world(request):
     return Response({"message": "Hello world"})
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = profileSerializer
 
-@api_view(['GET'])
-def get_profile(request):
-    profile_data = Profile.objects.all()
-    
-    serializer = profileSerializer(profile_data, many=True)
-    return Response(serializer.data)
-
-@api_view(['GET'])
-def get_skills(request):
-    skills_data = Skills.objects.all()
-    
-    serializer = SkillsSerializer(skills_data, many=True)
-    
-    return Response(serializer.data)
-
-@api_view(['GET'])
-def get_education(request):
-    education_data = Education.objects.all()
-    
-    serializer = EducationSerializer(education_data, many=True)
-    
-    return Response(serializer.data)
+class SkillsViewSet(viewsets.ModelViewSet):
+    queryset = Skills.objects.all()
+    serializer_class = SkillsSerializer
 
 
-# the models views below uses the viewsets instead of views functions
+class EducationViewSet(viewsets.ModelViewSet):
+    queryset = Education.objects.all()
+    serializer_class = EducationSerializer
+    
 class ProjectsViewSet(viewsets.ModelViewSet):
     queryset = Projects.objects.all()
     serializer_class = ProjectsSerializer

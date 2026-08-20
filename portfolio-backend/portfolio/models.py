@@ -7,6 +7,7 @@ from django.db import models
 
 class Profile(models.Model):
     name = models.CharField(max_length=50, default="Regis Alain Udahemuka")
+    picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     address = models.CharField(max_length=100)
     nationality = models.CharField(max_length=50, default="Rwanda 🇷🇼")
     university = models.CharField(max_length=50, default="Ashesi Universiy")
