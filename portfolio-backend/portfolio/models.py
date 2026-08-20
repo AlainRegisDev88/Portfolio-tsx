@@ -7,6 +7,7 @@ from django.db import models
 
 class Profile(models.Model):
     name = models.CharField(max_length=50, default="Regis Alain Udahemuka")
+    picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     address = models.CharField(max_length=100)
     nationality = models.CharField(max_length=50, default="Rwanda 🇷🇼")
     university = models.CharField(max_length=50, default="Ashesi Universiy")
@@ -66,6 +67,7 @@ class Experience(models.Model):
     name = models.CharField(unique=True)
     category = models.CharField(max_length=50)
     organisation = models.CharField(max_length=50, blank=False)
+    description = models.TextField(default="")
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     

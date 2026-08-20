@@ -1,6 +1,20 @@
 import './SkillsSection.css'
+import { useEffect, useState } from 'react';
+import skillsServices from '../../services/skillsServices';
 
 const SkillsSection = () => {
+    const [skills, setSkills] = useState<Record<string, any>>([]);
+
+    useEffect(()=>{
+        const getSkills = async () =>{
+            const result = await skillsServices.getSkills();
+            setSkills(result.data)
+        }
+        getSkills();        
+    }, [])
+
+    console.log(skills)
+
     return (
         <section className="section" id="skills">
             <div className="sec-header reveal">
