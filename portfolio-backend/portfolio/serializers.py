@@ -21,7 +21,7 @@ class profileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
         
-class ProjectsSerializersI(serializers.ModelSerializer):
+class ProjectsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Projects
         fields = '__all__'
