@@ -21,3 +21,5 @@ def get_education(request):
     education_data = Education.objects.all()
     
     serializer = EducationSerializer(education_data, many=True)
+    
+    return Response(serializer.data)
