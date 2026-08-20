@@ -66,6 +66,7 @@ class Experience(models.Model):
     name = models.CharField(unique=True)
     category = models.CharField(max_length=50)
     organisation = models.CharField(max_length=50, blank=False)
+    description = models.TextField(default="")
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     
