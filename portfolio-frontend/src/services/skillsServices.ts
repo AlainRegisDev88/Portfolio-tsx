@@ -5,7 +5,7 @@ const skillsServices = {
 
     getSkills: async() => {
         try {
-            const result = await api.get('/skills')
+            const result = await api.get('/skills/')
             return result
         } catch (error) {
             console.log(error)
