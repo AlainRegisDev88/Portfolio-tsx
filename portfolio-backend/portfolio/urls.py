@@ -12,7 +12,7 @@ router.register(r'profile', views.ProfileViewSet, basename="profile")
 
 
 urlpatterns = [
-    path('api/greetings', views.hello_world, name="hello-world"),
-    path('api/', include(router.urls))
+    path('greetings/', views.hello_world, name="hello-world"),
+    path('', include(router.urls))
 ]
 

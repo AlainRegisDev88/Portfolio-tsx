@@ -2,16 +2,30 @@ import './SkillsSection.css'
 import { useEffect, useState } from 'react';
 import skillsServices from '../../services/skillsServices';
 
-const SkillsSection = () => {
-    const [skills, setSkills] = useState<Record<string, any>>([]);
+type Skill = {
+    category: string;
+    [key: string]: any;
+};
 
-    useEffect(()=>{
-        const getSkills = async () =>{
+const SkillsSection = () => {
+    const [skills, setSkills] = useState<Skill[]>([]);
+
+    useEffect(() => {
+        const getSkills = async () => {
             const result = await skillsServices.getSkills();
             setSkills(result.data)
         }
-        getSkills();        
+        getSkills();
     }, [])
+
+
+    const groupedSkills = skills.reduce<Record<string, Skill[]>>((groups, skill) => {
+        const category = skill.category;
+        (groups[category] ??= []).push(skill);
+        return groups;
+    }, {});
+
+    console.log(groupedSkills)
 
     console.log(skills)
 
@@ -24,6 +38,11 @@ const SkillsSection = () => {
                     service of building intelligent systems.</p>
             </div>
             <div className="skills-grid reveal">
+                {
+                    groupedSkills.forEach(skill => {
+                        
+                    });
+                }
                 <div className="skill-cat">
                     <div className="skill-cat-title">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -62,11 +81,11 @@ const SkillsSection = () => {
                             <div className="skill-bar-fill" data-w="45" style={{ width: '0%' }}></div>
                         </div>
                     </div>
-                    
-                    
-                    
+
+
+
                 </div>
-                <div className="skill-cat" style={{opacity: "0.3"}}>
+                <div className="skill-cat" style={{ opacity: "0.3" }}>
                     <div className="skill-cat-title">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                             <path
