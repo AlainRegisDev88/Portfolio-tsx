@@ -40,7 +40,7 @@ const SkillsSection = () => {
             <div className="skills-grid reveal">
                 {
                     groupedSkills.forEach(skill => {
-                        
+                        pass
                     });
                 }
                 <div className="skill-cat">
