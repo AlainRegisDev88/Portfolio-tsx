@@ -61,6 +61,7 @@ const SkillsSection = () => {
                                         style={{ width: `${skill.proficiency}%` }}
                                     />
                                 </div>
+                                <div></div>
                             </div>
                         ))}
                     </div>
