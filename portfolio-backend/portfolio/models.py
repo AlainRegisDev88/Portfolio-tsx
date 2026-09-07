@@ -53,6 +53,7 @@ class Skills(models.Model):
 class Projects(models.Model):
     uuid  =models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     name = models.CharField(max_length=50, unique=True)
+    category = models.CharField(max_length=50, blank=True)
     languages = models.JSONField(blank=True, default=list)
     description = models.TextField(blank=True)
     github = models.BooleanField(default=False)
