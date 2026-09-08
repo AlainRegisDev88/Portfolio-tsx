@@ -1,6 +1,32 @@
+import { useState, useEffect } from 'react';
 import './ExperienceSection.css'
+import ExperincesServices from '../../services/ExperiencesService';
 
 const ExperinceSection = () => {
+
+    type Experiences = {
+        id: string,
+        uuid: string,
+        name: string,
+        category: string,
+        organisation: string,
+        description: string,
+        start_date: string,
+        end_date?: string
+    }
+
+    const [experiences, setExperiences] = useState<Experiences[]>([])
+
+    useEffect(()=>{
+        const getExperiences = async() =>{
+            const result = await ExperincesServices.getExperiences();
+            setExperiences(result.data)
+        }
+
+        getExperiences()
+    },[])
+
+
     return (
         <section className="section" id="experience">
             <div className="sec-header reveal">
@@ -8,6 +34,20 @@ const ExperinceSection = () => {
                 <h2 className="sec-title">Experience</h2>
             </div>
             <div className="exp-grid reveal">
+
+                {experiences.map((experience)=>{
+                    return(
+                    <div className="exp-card">
+                    <div className="exp-type">{experience.category}</div>
+                    <div className="exp-title">{experience.name}</div>
+                    <div className="exp-org">{experience.organisation}</div>
+                    <div className="exp-desc">{experience.description}</div>
+                    <div className="exp-period">{experience.start_date} – {experience.end_date}</div>
+                </div>
+                    )
+                })}
+
+
                 <div className="exp-card">
                     <div className="exp-type">Internship</div>
                     <div className="exp-title">Data Science & Analytics Intern</div>
