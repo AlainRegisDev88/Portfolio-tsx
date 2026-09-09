@@ -1,6 +1,42 @@
+import EducationServices from '../../services/EducationServices';
 import './EducationSection.css'
+import { useState, useEffect } from 'react';
 
 const EducationSection = () => {
+
+    const getYear = (date: string | null | undefined) =>{
+        if(!date) return "Present"
+
+        const newDate = new Date(date.replace('/-/g', '/'))
+
+        return newDate.toLocaleDateString('en-US', {
+            year: 'numeric'
+        })
+    }
+
+    type Education = {
+        id: string,
+        uuid: string,
+        school: string,
+        program: string,
+        location: string,
+        status: string,
+        start_date: string,
+        end_date: string,
+        coursework: string[]
+    }
+    const [education, setEducation] = useState<Education[]>([]);
+
+    useEffect(()=>{
+
+        const getEducation = async() =>{
+            const result = await EducationServices.getEducation();
+            setEducation(result.data)
+        }
+        getEducation()
+        
+    },[])
+
     return (
         <section className="section" id="education">
             <div className="sec-header reveal">
@@ -8,38 +44,24 @@ const EducationSection = () => {
                 <h2 className="sec-title">Education</h2>
             </div>
             <div className="edu-cards reveal">
-                <div className="edu-card">
-                    <div className="edu-degree">BSc. Computer Science · 2024 – 2028</div>
-                    <div className="edu-school">Ashesi University</div>
-                    <div className="edu-detail" style={{ color: 'var(--text2)' }}>Berekuso, Eastern Region, Ghana</div>
-                    <div className="edu-detail" style={{ color: 'var(--text3)', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>MasterCard
-                        Foundation Scholar</div>
+                {education.map((course) =>{
+                    return(
+                        <div className="edu-card">
+                    <div className="edu-degree">{course.program} · {getYear(course.start_date)} – {getYear(course.end_date)}</div>
+                    <div className="edu-school">{course.school}</div>
+                    <div className="edu-detail" style={{ color: 'var(--text2)' }}>{course.location}</div>
+                    <div className="edu-detail" style={{ color: 'var(--text3)', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>{course.status}</div>
                     <div className="edu-courses">
                         <div className="courses-label">Relevant Coursework</div>
-                        <span className="course-tag">Data Structures</span>
-                        <span className="course-tag">Algorithms</span>
-                        <span className="course-tag">Calculus</span>
-                        <span className="course-tag">Linear Algebra</span>
-                        <span className="course-tag">Data Science</span>
-                        <span className="course-tag">OOP (Java)</span>
-                        <span className="course-tag">Discrete Math</span>
-                        <span className="course-tag">Leadership</span>
+                        {course.coursework.map((category)=>{
+                            return(
+                                <span className="course-tag">{category}</span>
+                            )
+                        })}
                     </div>
                 </div>
-                <div className="edu-card">
-                    <div className="edu-degree">Leadership Program · 2026</div>
-                    <div className="edu-school">Aspire Leaders Program</div>
-                    <div className="edu-detail" style={{ color: 'var(--text2)' }}>Cohort 1, 2026</div>
-                    <div className="edu-detail" style={{ color: 'var(--text3)', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>Graduate</div>
-                    <div className="edu-courses">
-                        <div className="courses-label">Focus Areas</div>
-                        <span className="course-tag">Servant Leadership</span>
-                        <span className="course-tag">Community Impact</span>
-                        <span className="course-tag">Career Development</span>
-                        <span className="course-tag">Networking</span>
-                        <span className="course-tag">Global Perspective</span>
-                    </div>
-                </div>
+                    )
+                })}
             </div>
         </section>
     );
