@@ -1,6 +1,39 @@
+import { ProfileServices } from '../../services/ProfileServices';
 import './AboutSection.css'
+import { useState, useEffect } from 'react';
 
 const AboutSection = () => {
+
+    type Profile = { 
+        id: string,
+        name: string,
+        picture: string,
+        address: string,
+        nationality: string,
+        university: string,
+        program: string,
+        year: string,
+        focus: string,
+        language: string[]
+    }
+
+    const [profile, setProfile] = useState<Profile[]>([]);
+
+    useEffect(()=>{
+        const getProjects = async () =>{
+            try {
+                const result = await ProfileServices.getProfile()
+                console.log(result.data)
+            } catch (error) {
+                console.log(error)
+            }
+            
+
+        } 
+        getProjects()
+    },[])
+
+    
     return (
         <section className="section" id="about">
             <div className="sec-header reveal">
@@ -68,7 +101,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                     <div className="about-sidebar-card reveal">
-                        <div className="profile-placeholder">Profile Photo</div>
+                        <div className="profile-placeholder"><img src=`${}` alt="Profile Photo" /></div>
                         <div className="info-row"><span className="info-label">Location</span><span className="info-val">Accra, Ghana</span>
                         </div>
                         <div className="info-row"><span className="info-label">Origin</span><span className="info-val">Rwanda 🇷🇼</span></div>
