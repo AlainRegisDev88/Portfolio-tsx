@@ -14,7 +14,7 @@ const AboutSection = () => {
         program: string,
         year: string,
         focus: string,
-        language: string[]
+        languages: string[]
     }
 
     const [profile, setProfile] = useState<Profile[]>([]);
@@ -24,6 +24,7 @@ const AboutSection = () => {
             try {
                 const result = await ProfileServices.getProfile()
                 console.log(result.data)
+                setProfile(result.data)
             } catch (error) {
                 console.log(error)
             }
@@ -101,19 +102,15 @@ const AboutSection = () => {
                 </div>
                 <div>
                     <div className="about-sidebar-card reveal">
-                        <div className="profile-placeholder"><img src=`${}` alt="Profile Photo" /></div>
-                        <div className="info-row"><span className="info-label">Location</span><span className="info-val">Accra, Ghana</span>
+                        <div className="profile-placeholder "><img src={profile[0]?.picture} alt="Profile Photo" className='w-100 h-100 object-fit-cover br-100' /></div>
+                        <div className="info-row"><span className="info-label">Location</span><span className="info-val">{profile[0]?.address}</span>
                         </div>
-                        <div className="info-row"><span className="info-label">Origin</span><span className="info-val">Rwanda 🇷🇼</span></div>
-                        <div className="info-row"><span className="info-label">University</span><span className="info-val">Ashesi
-                            University</span></div>
-                        <div className="info-row"><span className="info-label">Program</span><span className="info-val">BSc. Computer
-                            Science</span></div>
-                        <div className="info-row"><span className="info-label">Year</span><span className="info-val">Sophomore (Y2)</span></div>
-                        <div className="info-row"><span className="info-label">Focus</span><span className="info-val">AI · ML · Data
-                            Science</span></div>
-                        <div className="info-row"><span className="info-label">Languages</span><span className="info-val">Kinyarwanda, English,
-                            French</span></div>
+                        <div className="info-row"><span className="info-label">Origin</span><span className="info-val">{profile[0]?.nationality}</span></div>
+                        <div className="info-row"><span className="info-label">University</span><span className="info-val">{profile[0]?.university}</span></div>
+                        <div className="info-row"><span className="info-label">Program</span><span className="info-val">{profile[0]?.program}</span></div>
+                        <div className="info-row"><span className="info-label">Year</span><span className="info-val">{profile[0]?.year}</span></div>
+                        <div className="info-row"><span className="info-label">Focus</span><span className="info-val">{profile[0]?.focus}</span></div>
+                        <div className="info-row"><span className="info-label">Languages</span><span className="info-val">{profile[0]?.languages?.map((lang)=> lang).join(", ")}</span></div>
                     </div>
                     <div
                         style={{ marginTop: '24px', background: 'var(--surface2)', border: '1px solid var(--border)', borderRadius: '12px', padding: '28px' }}
