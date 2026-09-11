@@ -6,6 +6,7 @@ from django.db import models
 
 
 class Profile(models.Model):
+    about_me = models.JSONField(default=list, blank=True, null=True)
     name = models.CharField(max_length=50, default="Regis Alain Udahemuka")
     picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     address = models.CharField(max_length=100)
